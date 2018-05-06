@@ -18,24 +18,26 @@ var carDetails = {
 // Do not edit the code above.
 
 /*
-  Use object destructuring to save the property values from the object carDetails into new variables. 
+  Use object destructuring to save the property values from the object carDetails into new variables.
 */
 
 //Code Here
+const {color, make, model, year} = carDetails;
+
 
 
 
 ////////// PROBLEM 2 //////////
 
 /*
-  In the function below named greeting, it is receiving an object as a parameter. 
-  Use object destructuring to save the object properties to new variables. 
+  In the function below named greeting, it is receiving an object as a parameter.
+  Use object destructuring to save the object properties to new variables.
   The property names are firstName, lastName, and title.
 */
 
 function greeting( obj ) {
   //Code Here
-  
+  const {firstName, lastName, title} = obj;
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -54,20 +56,47 @@ function greeting( obj ) {
 */
 
 //Code Here
+function totalPopulation(obj){
+  const {utah, california, texas, arizona} = obj;
+  console.log(utah);
+  return utah + california + texas + arizona;
+};
 
+var obj = {
+  utah: 1,
+  california: 2,
+  texas: 3,
+  arizona: 4,
+};
+console.log('totalPopulation', totalPopulation(obj));
 
 
 ////////// PROBLEM 4 //////////
 
 /*
-  Write a function called ingredients that will take in an object. 
-  This object will have 3 properties named carb, fat, and protein. 
-  The property values will be strings. 
-  Use object destructuring to save the property values to new variables. 
-  Push these new variables to an array and return the array. 
+  Write a function called ingredients that will take in an object.
+  This object will have 3 properties named carb, fat, and protein.
+  The property values will be strings.
+  Use object destructuring to save the property values to new variables.
+  Push these new variables to an array and return the array.
 */
 
 //Code Here
+function ingredients(obj1){
+  var array = [];
+  const {carb, fat, protein} = obj1;
+  array.push(carb, fat, protein);
+  return array;
+};
+
+var obj1 = {
+  carb: "potato",
+  fat: "fries",
+  protein: "pizza"
+}
+console.log('ingredients', ingredients);
+
+
 
 
 
@@ -86,6 +115,23 @@ function greeting( obj ) {
 */
 
 //Code Here
+function largeNumbers(obj2){
+  const {first, second, third} = obj2;
+  if(first < second && first < third){
+    return first
+  }else if(second < first && second < third){
+    return second
+  }else if(third < first && third < second){
+    return third
+  }
+}
+
+var obj2 = {
+  first: 1,
+  second: 2,
+  third: 3,
+}
+console.log('largeNumbers', largeNumbers)
 
 
 
@@ -98,5 +144,20 @@ function greeting( obj ) {
 */
 
 //Code Here
+function numberGroups(obj3){
+  const {a, b, c} = obj3;
+  if(a.length > b.length && a.length > c.length){
+    return a
+  }else if(b.length > a.length && b.length > c.length){
+    return b
+  }else if(c.length > a.length && c.length > b.length){
+    return c
+  }
 
+}
 
+var obj3 = {
+  a: [1,2],
+  b: [3,4],
+  c: [5,6,6],
+}

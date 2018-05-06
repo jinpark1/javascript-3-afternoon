@@ -1,4 +1,4 @@
-/* 
+/*
   Once you complete a problem, refresh ./classes.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
@@ -30,8 +30,22 @@
 */
 
 //Code Here
+class Employee {
+  constructor(first_name, last_name, email, age){
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+  }
+  makeWidget(){
+    return this.first_name + " " + this.last_name + " Widget"; //Need to use this.first_name within the class scope.
+  }
+}
 
-
+const employee1 = new Employee("Jin", "Park", "Hi@Hi.com", 27);
+console.log('employee1', employee1);
+employee1.makeWidget()
+console.log('employee1', employee1);
 
 ////////// PROBLEM 2 //////////
 
@@ -50,7 +64,29 @@
 */
 
 //Code Here
+class Manager {
+  constructor(first_name, last_name, email, age, reports){
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+  }
+  makeWidget(){
+    return this.first_name + " " + this.last_name + " Widget";
+  }
+  hire(employee){
+    this.reports.push(employee);
+  }
+  fire(index){
+    this.reports.splice(index,1);
+  }
+}
 
+const manager1 = new Manager("Jin", "Park", "Hi@Hi.com", 27);
+console.log('manager1', manager1);
+manager1.hire("John");
+console.log('manager1', manager1);
 
 
 ////////// PROBLEM 3 //////////
@@ -76,7 +112,45 @@
 */
 
 //Code Here
+class ProgressiveManager {
+  constructor(first_name, last_name, email, age, reports, title, bonus){
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+    this.title = 'Not a manager';
+    this.bonus = 0;
+  }
+  makeWidget(){
+    return this.first_name + " " + this.last_name + " Widget";
+  }
+  hire(employee){
+    this.reports.push(employee);
+    if(this.reports.length === 0){
+      this.title = 'Not a manager';
+    }else if(this.reports.length > 0 && this.reports.length < 4){
+      this.title = 'Barely Manager';
+    }else if(this.reports.length > 3 && this.reports.length < 11){
+      this.title = 'Mostly Manager';
+    }else if(this.reports.length > 10 && this.reports.length < 51){
+      this.title = 'Manager';
+    }else if(this.reports.length > 50 && this.reports.length < 101){
+      this.title = 'Manager Plus';
+    }else if(this.reports.length > 100){
+      this.title = 'Bestest Manager';
+    };
+  }
+  fire(index){
+    this.reports.splice(index,1);
+    this.bonus += index*100;
+  }
+}
 
+const progressiveManager1 = new ProgressiveManager("Jin", "Park", "Hi@Hi.com", 27);
+console.log('progressiveManager1', progressiveManager1);
+progressiveManager1.hire("John");
+console.log('progressiveManager1', progressiveManager1);
 
 
 ////////// PROBLEM 4 - Black Diamond //////////
@@ -103,5 +177,3 @@
 */
 
 //Code Here
-
-
